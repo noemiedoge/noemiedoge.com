@@ -1,0 +1,5 @@
+/.vscode/
+/.idea/
+*.DS_Store
+/docker-compose.override.yml
+/wp-content/uploads/

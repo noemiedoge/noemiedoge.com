@@ -1,0 +1,14 @@
+services:
+  dev:
+    environment:
+      - WORDPRESS_DEBUG=1
+      # - WORDPRESS_CONFIG_EXTRA=""
+
+    ports:
+      - 8080:80
+
+  db:
+    ports:
+      - 13306:3306
+
+
