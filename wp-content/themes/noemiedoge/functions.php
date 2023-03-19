@@ -17,7 +17,8 @@ add_action( 'after_setup_theme', function () {
 
 
 add_action( 'wp_enqueue_scripts', function () {
-	wp_enqueue_style( 'noemiedoge-style', get_stylesheet_uri() );
+	$version = wp_get_theme()['Version'];
+	wp_enqueue_style( 'noemiedoge-style', get_stylesheet_uri(), [], $version );
 } );
 
 add_filter( 'document_title_separator', function ( $sep ) {
