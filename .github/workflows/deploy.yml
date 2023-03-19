@@ -22,5 +22,9 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVATE_SSH_KEY }}
       - run: ssh-keyscan ssh-noemiedoge.alwaysdata.net >> ~/.ssh/known_hosts
 
+      - name: Bump theme version
+        run: |
+          sed -i -E "s/Version: (.*)/Version: \1-${GITHUB_SHA::6}/" ./wp-content/themes/noemiedoge/style.css
+
       # Deploy using rsync
       - run: rsync -rz ./wp-content/themes/noemiedoge noemiedoge@ssh-noemiedoge.alwaysdata.net:~/www/2023.noemiedoge.com/wp-content/themes
