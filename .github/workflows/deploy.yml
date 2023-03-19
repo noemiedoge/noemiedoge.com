@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - ci
   workflow_dispatch:
 
 concurrency:
@@ -14,11 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Setup deploy envionment (SSH + ruby)
+      # Setup SSH
       - name: Install SSH key to deploy
         uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.PRIVATE_SSH_KEY }}
+      - run: ssh-keyscan ssh-noemiedoge.alwaysdata.net >> ~/.ssh/known_hosts
 
       # Deploy using rsync
       - run: rsync -rz ./wp-content/themes/noemiedoge noemiedoge@ssh-noemiedoge.alwaysdata.net:~/www/2023.noemiedoge.com/wp-content/themes
