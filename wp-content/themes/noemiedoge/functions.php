@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/config/custom-postypes.php';
+
 add_action( 'after_setup_theme', function () {
 	load_theme_textdomain( 'noemiedoge', get_template_directory() . '/languages' );
 	add_theme_support( 'title-tag' );
