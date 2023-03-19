@@ -3,9 +3,9 @@ Noémie Doge Website 2023
 A WordPress powered website with a custom theme based on [BlankSlate](https://wordpress.org/themes/blankslate/).
 
 <center>
-  [Staging](https://2023.noemiedoge.com)
+  <a href="https://2023.noemiedoge.com">Staging</a>
   ·
-  [Production](https://www.noemiedoge.com)
+  <a href="https://www.noemiedoge.com">Production</a>
 </center>
 
 ## Requirements
