@@ -23,4 +23,6 @@ $ docker-compose up -d --build
 Then go to [localhost:8080](http://localhost:8080).
 
 ## Deployment
-_TO BE DEFINED._
+The deployment is simple: a Githun Action is doing a rsync of the theme folder on the staging or production server.
+
+All plugins and configuration need to be installed manually.
