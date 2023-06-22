@@ -2,7 +2,7 @@ services:
   dev:
     environment:
       - WORDPRESS_DEBUG=1
-      # - WORDPRESS_CONFIG_EXTRA=""
+      # - WORDPRESS_CONFIG_EXTRA=1""
 
     ports:
       - 8080:80
