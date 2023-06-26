@@ -7,7 +7,7 @@
 
   <?php wp_head(); ?>
 
-  <link rel="manifest" href="/wp/manifest.json">
+  <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/manifest.json">
   <meta name="msapplication-TileColor" content="#000000">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#000000">
