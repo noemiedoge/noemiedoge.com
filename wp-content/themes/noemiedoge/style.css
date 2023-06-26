@@ -1,11 +1,11 @@
 /*
 Theme Name: noemiedoge
-Author: Antistatique / TidyThemes
+Author: Antistatique
 Description: Based on BlankSlate theme.
 Version: 2023
 Requires at least: 5.2
 Tested up to: 6.1
-Requires PHP: 7.0
+Requires PHP: 8.1
 License: GNU General Public License v3 or Later
 License URI: https://www.gnu.org/licenses/gpl.html
 Text Domain: noemiedoge
@@ -13,10 +13,199 @@ Text Domain: noemiedoge
 noemiedoge is distributed under the terms of the GNU GPL
 */
 
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}html{scroll-behavior:smooth}body{line-height:1}a{text-decoration-skip-ink:auto}a[href^="tel"]{color:inherit;text-decoration:none}button{outline:0}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}q{display:inline;font-style:italic}q:before{content:'"';font-style:normal}q:after{content:'"';font-style:normal}textarea,input[type="text"],input[type="button"],input[type="submit"],input[type="reset"],input[type="search"],input[type="password"]{-webkit-appearance:none;appearance:none;border-radius:0}input[type="search"]{-webkit-appearance:textfield}table{border-collapse:collapse;border-spacing:0}th,td{padding:2px}big{font-size:120%}small,sup,sub{font-size:80%}sup{vertical-align:super}sub{vertical-align:sub}dd{margin-left:20px}kbd,tt{font-family:courier;font-size:12px}ins{text-decoration:underline}del,strike,s{text-decoration:line-through}dt{font-weight:bold}address,cite,var{font-style:italic}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-.sticky{}.bypostauthor{}.wp-caption{}.wp-caption-text{}.gallery-caption{}.alignright{}.alignleft{}.aligncenter{}
-.screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute!important;width:1px;word-wrap:normal!important;word-break:normal}
-.screen-reader-text:focus{background-color:#f7f7f7;border-radius:3px;box-shadow:0 0 2px 2px rgba(0,0,0,.6);clip:auto!important;-webkit-clip-path:none;clip-path:none;color:#007acc;display:block;font-size:14px;font-size:.875rem;font-weight:700;height:auto;right:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
-.skip-link{left:-9999rem;top:2.5rem;z-index:999999999;text-decoration:underline}
-.skip-link:focus{display:block;left:6px;top:7px;font-size:14px;font-weight:600;text-decoration:none;line-height:normal;padding:15px 23px 14px;z-index:100000;right:auto}
-.visually-hidden:not(:focus):not(:active), .form-allowed-tags:not(:focus):not(:active){position:absolute !important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px, 1px, 1px, 1px);white-space:nowrap}
+:root {
+  --text-color: #000000ff;
+  --background-color: #ffffffff;
+  --link-color:  #000000d9;
+  --external-margin: 2vmax;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #ffffffff;
+    --background-color: #000000ff;
+    --link-color:  #ffffffd9;
+  }
+}
+
+@font-face {
+  font-family: 'bigdailyshort';
+  font-display: swap;
+  src:
+      url('assets/bigdailyshortweb-semilight.woff2') format('woff2'),
+      url('assets/bigdailyshortweb-semilight.woff') format('woff');
+}
+@font-face {
+  font-family: 'bigdailyshort';
+  font-display: swap;
+  font-style: italic;
+  src:
+      url('assets/bigdailyshortweb-semilightitalic.woff2') format('woff2'),
+      url('assets/bigdailyshortweb-semilightitalic.woff') format('woff');
+}
+
+html{
+  font-size: 16px;
+}
+body{
+  font-family:Helvetica,-apple-system,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+  font-size: calc(0.8em + 0.5vw);
+  background-color: var(--melon);
+  background: white;
+  background: var(--background-color);
+  margin: 0;
+  padding: var(--external-margin);
+  color: black;
+  color: var(--text-color);
+}
+
+a{
+  text-decoration: none;
+  color: var(--link-color);
+  text-decoration-thickness: 0.02em;
+  text-decoration-skip-ink: auto;
+}
+a:hover{
+  text-decoration: underline;
+  color: var(--text-color);
+}
+
+
+header{
+  position: sticky;
+  top: var(--external-margin);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+nav{
+
+}
+nav ul{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+header a{
+  padding: 0.5em;
+  text-decoration: none;
+  color: var(--text-color);
+  opacity: 0.8;
+  transition: 0.12s opacity ease-in-out;
+}
+header a:hover{
+  opacity: 1;
+}
+
+main{
+  max-width: 50rem;
+  margin: auto;
+}
+@supports (display: grid) and (not (-ms-ime-align: auto)) {
+  main{
+    max-width: none;
+  }
+  .container{
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns:
+	[full-start] minmax(1em, 1fr)
+	[main-start] minmax(0, 40em) [main-end]
+	minmax(1em, 1fr) [full-end];
+  }
+  .container>*{
+    grid-column: main;
+  }
+  .container-main{
+    grid-column: main;
+  }
+  .container-full{
+    grid-column:full;
+  }
+}
+
+.cloud{
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cloud a{
+  display: block;
+  padding: 0.5em;
+  font-family: "bigdailyshort", Garamount, Times, serif, ui-serif;
+  font-size: calc(1.2em + 1vw);
+}
+.cloud a.deco:hover{
+  text-decoration: none;
+}
+.cloud a:last-child{
+  display: none;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5{
+  word-wrap: break-word;
+}
+h1, .h1, .h-huge {
+  font-family: "bigdailyshort", Garamount, Times, serif, ui-serif;
+  font-size: calc(2.1em + 1vw);
+  line-height: 1.1em;
+  font-weight: 360;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+h2, .h2 {
+  font-size: calc(1.2em + 1vw);
+  line-height: 1.3em;
+  font-weight: 400;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+h3, .h3 {
+  font-size: calc(0.9em + 1vw);
+  font-weight: 300;
+  line-height: 1.3em;
+  margin-top: 0.8em;
+  margin-bottom: 0;
+}
+h4, .h4 {
+  font-size: calc(0.8em + 1vw);
+  font-weight: normal;
+  line-height: 1.3em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.center{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p, ul, ol, pre, table, blockquote {
+  line-height: 1.43em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+h1 + h2, h2 + h3, h3 + h4{
+  margin-top: 0.5em;
+}
+ul, ol{
+  margin-left: 1em;
+  padding-left: 0em;
+  margin-bottom: 1em;
+}
+ul li , ol li{
+  margin-bottom: 0.3em;
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+p + p, p + h2, p + ul, ul + p, h2 + p, h3 + ol, h3 + ul, h2 + ol, h2 + ul{
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+

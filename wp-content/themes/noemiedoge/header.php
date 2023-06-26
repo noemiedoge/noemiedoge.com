@@ -2,26 +2,31 @@
 <html <?php language_attributes(); ?> <?php noemiedoge_schema_type(); ?>>
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <?php wp_head(); ?>
+
+  <link rel="manifest" href="/wp/manifest.json">
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#000000">
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="wrapper" class="hfeed">
 <header id="header" role="banner">
-  <div id="branding">
-    <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-      <?php
-      if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; }
-      echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home" itemprop="url"><span itemprop="name">' . esc_html( get_bloginfo( 'name' ) ) . '</span></a>';
-      if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1>'; }
-      ?>
-    </div>
-    <div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>><?php bloginfo( 'description' ); ?></div>
+  <div id="logo" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+    <strong>
+      <a href="<?php esc_url( home_url( '/' ) ) ?>" rel="home" itemprop="url">
+        Noémie Doge
+      </a>
+    </strong>
   </div>
+
   <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
   <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
   </nav>
+
 </header>
-<div id="container">
-<main id="content" role="main">
+
+<main class="container" id="content" role="main">

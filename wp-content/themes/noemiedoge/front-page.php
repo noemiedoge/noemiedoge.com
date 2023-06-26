@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
-<nav>
-	<ul>
+<div class="cloud">
 	<?php
 	$worksQuery = new WP_Query( query: [
 		'post_type' => 'works',
@@ -11,22 +10,19 @@
 	while ( $worksQuery->have_posts() ):
 		$worksQuery->the_post();
 		?>
-		<li>
 			<a href="<?php the_permalink(); ?>">
-			<h2><?php the_title(); ?></h2>
-			<?php the_excerpt(); ?>
+			<?php the_title(); ?>
 			<?php if ( has_post_thumbnail() ): ?>
 				<?php the_post_thumbnail(); ?>
 			<?php endif; ?>
 			</a>
-		</li>
+      <a class="deco">·</a>
 	<?php
 	endwhile;
 
 	wp_reset_postdata();
 	?>
-	</ul>
-</nav>
+</div>
 
 
 
