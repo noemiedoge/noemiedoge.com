@@ -17,7 +17,7 @@
 <header id="header" role="banner">
   <div id="logo" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
     <strong>
-      <a href="<?php esc_url( home_url( '/' ) ) ?>" rel="home" itemprop="url">
+      <a href="<?php echo esc_url( home_url( '/' ) ) ?>" rel="home" itemprop="url">
         Noémie Doge
       </a>
     </strong>
