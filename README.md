@@ -22,6 +22,13 @@ $ docker-compose up -d --build
 
 Then go to [localhost:8080](http://localhost:8080).
 
+## Pull production DB
+Run the following script to get a fresh copy of the production database:
+
+```bash
+./scripts/prod-db-to-docker.sh
+```
+
 ## Deployment
 The deployment is simple: a Githun Action is doing a rsync of the theme folder on the staging or production server.
 
