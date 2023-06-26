@@ -1,9 +1,10 @@
 services:
   dev:
     environment:
-      - WORDPRESS_DEBUG=1
-      # - WORDPRESS_CONFIG_EXTRA=1""
-
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME', 'http://localhost:8080' );
+        define('WP_SITEURL', 'http://localhost:8080/' );
     ports:
       - 8080:80
 

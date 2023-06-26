@@ -16,10 +16,10 @@ services:
       - ./wp-content/themes/noemiedoge:/var/www/html/wp-content/themes/noemiedoge
       - ./wp-content/uploads:/var/www/html/wp-content/uploads
     environment:
-      - WORDPRESS_DB_HOST=db
-      - WORDPRESS_DB_USER=wordpress
-      - WORDPRESS_DB_PASSWORD=wordpress
-      - WORDPRESS_DB_NAME=noemiedoge
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: noemiedoge
 
 volumes:
   db_data:
