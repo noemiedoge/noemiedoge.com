@@ -29,4 +29,4 @@
 
 </header>
 
-<main class="container" id="content" role="main">
+<main class="container-full" id="content" role="main">

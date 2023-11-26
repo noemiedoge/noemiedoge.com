@@ -99,3 +99,13 @@ add_action( 'widgets_init', function () {
 		'after_title' => '</h3>',
 	) );
 } );
+
+function gallery_wrapper( $block_content, $block ) {
+	if ( $block['blockName'] === 'core/gallery' ) {
+		// Wrap the gallery block content in a div
+		$block_content = '<div class="gallery_wrapper">' . $block_content . '</div>';
+	}
+	return $block_content;
+}
+
+add_filter( 'render_block', 'gallery_wrapper', 10, 2 );

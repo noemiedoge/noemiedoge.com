@@ -70,7 +70,7 @@ a:hover{
 }
 
 
-header{
+header#header{
   position: sticky;
   top: var(--external-margin);
   display: flex;
@@ -87,14 +87,14 @@ nav ul{
   margin: 0;
   padding: 0;
 }
-header a{
+header#header a{
   padding: 0.5em;
   text-decoration: none;
   color: var(--text-color);
   opacity: 0.8;
   transition: 0.12s opacity ease-in-out;
 }
-header a:hover{
+header#header a:hover{
   opacity: 1;
 }
 
@@ -126,23 +126,47 @@ main{
   }
 }
 
-.cloud{
+.container-cloud{
   min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.cloud{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .cloud a{
   display: block;
-  padding: 0.5em;
+  padding: 0.2em 0.5em;
   font-family: "bigdailyshort", Garamount, Times, serif, ui-serif;
   font-size: calc(1.2em + 1vw);
+  position: relative;
 }
 .cloud a.deco:hover{
   text-decoration: none;
 }
 .cloud a:last-child{
   display: none;
+}
+.cloud a .cloud-thumbnail{
+  opacity: 0;
+  /* display: none; */
+  transition: opacity 0.1s ease-in-out;
+  /* display: block; */
+  bottom:2em;
+  left:0;
+  position: absolute;
+}
+.cloud a .cloud-thumbnail img{
+  max-width: 10vmax;
+  height: auto;
+}
+.cloud a:hover .cloud-thumbnail{
+  opacity: 1;
 }
 
 /* Typography */
@@ -157,10 +181,13 @@ h1, .h1, .h-huge {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+.entry-title{
+  text-align: center;
+}
 h2, .h2 {
-  font-size: calc(1.2em + 1vw);
+  font-size: calc(1em + 0.21vw);
   line-height: 1.3em;
-  font-weight: 400;
+  font-weight: 800;
   margin-top: 0.5em;
   margin-bottom: 0;
 }
@@ -209,3 +236,39 @@ p + p, p + h2, p + ul, ul + p, h2 + p, h3 + ol, h3 + ul, h2 + ol, h2 + ul{
   margin-bottom: 0.4em;
 }
 
+/* slider gallery */
+
+.gallery_wrapper{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  height: 80vh;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+}
+.wp-block-gallery{
+  height: 80vh;
+  width: calc(80vh * 8);
+  display: flex;
+  flex-flow: row nowrap;
+  flex-wrap: nowrap!important;
+}
+.wp-block-gallery .wp-block-image{
+  scroll-snap-align: start;
+  height: 80vh;
+  width: auto;
+}
+
+/* EDITION STYLES */
+.post-edit-link{
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  padding: 0.4em;
+}
+.post-edit-link:hover{
+  color: #ff00aa;
+}
