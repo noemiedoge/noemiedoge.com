@@ -94,6 +94,9 @@ header#header a{
   opacity: 0.8;
   transition: 0.12s opacity ease-in-out;
 }
+header#header #logo a{
+  padding-left: 0;
+}
 header#header a:hover{
   opacity: 1;
 }
@@ -235,6 +238,11 @@ ul ul, ol ol, ul ol, ol ul {
 p + p, p + h2, p + ul, ul + p, h2 + p, h3 + ol, h3 + ul, h2 + ol, h2 + ul{
   margin-top: 0.4em;
   margin-bottom: 0.4em;
+}
+
+.size-full{
+  max-width: 100%;
+  height: auto;
 }
 
 /* slider gallery */
